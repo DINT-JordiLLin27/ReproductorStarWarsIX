@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace WpfApp4
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -25,30 +22,36 @@ namespace WpfApp4
             InitializeComponent();
         }
 
-        private void ClicksBotonesMultimedia(object sender, RoutedEventArgs e)
-        {
-            if ((sender as Button).Name == PlayButton.Name)
-                ReproductorMediaElement.Play();
-            else if ((sender as Button).Name == PauseButton.Name)
-                ReproductorMediaElement.Pause();
-            else if ((sender as Button).Name == StopButton.Name)
-                ReproductorMediaElement.Stop();
-        }
-
-        private void RadioButtons_Checked(object sender, RoutedEventArgs e)
-        {
-            if ((sender as RadioButton).Name == Trailer1RadioButton.Name)
-                ReproductorMediaElement.Source = new Uri(@"E:\DAMLocal\2_DAM\DINT\Programas\WpfApp4\vids\trailer1.mp4");
-            if ((sender as RadioButton).Name == Trailer2RadioButton.Name)
-                ReproductorMediaElement.Source = new Uri(@"E:\DAMLocal\2_DAM\DINT\Programas\WpfApp4\vids\trailer2.mp4");
-        }
-
         private void SilencioCheckBox_Click(object sender, RoutedEventArgs e)
         {
-            if (SilencioCheckBox.IsChecked == true)
-                ReproductorMediaElement.IsMuted = true;
-            else
-                ReproductorMediaElement.IsMuted = false;
+            ReproductorMediaElement.IsMuted = !ReproductorMediaElement.IsMuted;
+        }
+
+        private void StopButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReproductorMediaElement.Play();
+        }
+
+        private void PauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReproductorMediaElement.Pause();
+        }
+
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReproductorMediaElement.Stop();
+        }
+
+        private void Trailer1RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ReproductorMediaElement.Source = new Uri(@"E:\DAMLocal\2_DAM\DINT\Programas\WpfApp4\vids\trailer1.mp4");
+            ReproductorMediaElement.Play();
+        }
+
+        private void Trailer2RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ReproductorMediaElement.Source = new Uri(@"E:\DAMLocal\2_DAM\DINT\Programas\WpfApp4\vids\trailer2.mp4");
+            ReproductorMediaElement.Play();
         }
     }
 }
