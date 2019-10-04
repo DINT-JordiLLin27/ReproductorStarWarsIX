@@ -29,7 +29,7 @@ namespace WpfApp4
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
-            ReproductorMediaElement.Play();
+            ReproductorMediaElement.Stop();
         }
 
         private void PauseButton_Click(object sender, RoutedEventArgs e)
@@ -39,7 +39,7 @@ namespace WpfApp4
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            ReproductorMediaElement.Stop();
+            ReproductorMediaElement.Play();
         }
 
         private void Trailer1RadioButton_Checked(object sender, RoutedEventArgs e)
