@@ -24,5 +24,31 @@ namespace WpfApp4
         {
             InitializeComponent();
         }
+
+        private void ClicksBotonesMultimedia(object sender, RoutedEventArgs e)
+        {
+            if ((sender as Button).Name == PlayButton.Name)
+                ReproductorMediaElement.Play();
+            else if ((sender as Button).Name == PauseButton.Name)
+                ReproductorMediaElement.Pause();
+            else if ((sender as Button).Name == StopButton.Name)
+                ReproductorMediaElement.Stop();
+        }
+
+        private void RadioButtons_Checked(object sender, RoutedEventArgs e)
+        {
+            if ((sender as RadioButton).Name == Trailer1RadioButton.Name)
+                ReproductorMediaElement.Source = new Uri(@"E:\DAMLocal\2_DAM\DINT\Programas\WpfApp4\vids\trailer1.mp4");
+            if ((sender as RadioButton).Name == Trailer2RadioButton.Name)
+                ReproductorMediaElement.Source = new Uri(@"E:\DAMLocal\2_DAM\DINT\Programas\WpfApp4\vids\trailer2.mp4");
+        }
+
+        private void SilencioCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (SilencioCheckBox.IsChecked == true)
+                ReproductorMediaElement.IsMuted = true;
+            else
+                ReproductorMediaElement.IsMuted = false;
+        }
     }
 }

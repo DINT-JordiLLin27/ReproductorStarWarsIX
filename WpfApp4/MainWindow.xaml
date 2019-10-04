@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Reproductor (Star Wars IX)" Height="450" Width="800"
+        Icon="128.ico">
+    <DockPanel>
         
-    </Grid>
+        <CheckBox x:Name="SilencioCheckBox" DockPanel.Dock="Bottom" Margin="5" Click="SilencioCheckBox_Click">Silencio</CheckBox>
+        
+        <DockPanel DockPanel.Dock="Right" LastChildFill="False">
+            
+            <StackPanel
+            DockPanel.Dock="Top" Margin="10" MaxWidth="200" MaxHeight="100">
+                <Button x:Name="PlayButton" Padding="30,1,30,1" Margin="5" Click="ClicksBotonesMultimedia">Play</Button>
+                <Button x:Name="PauseButton" Padding="30,1,30,1" Margin="5" Click="ClicksBotonesMultimedia">Pause</Button>
+                <Button x:Name="StopButton" Padding="30,1,30,1" Margin="5" Click="ClicksBotonesMultimedia">Stop</Button>
+            </StackPanel>
+            
+            <StackPanel DockPanel.Dock="Bottom" Margin="10,10,10,0">
+                <RadioButton x:Name="Trailer1RadioButton" Margin="3" Checked="RadioButtons_Checked">Trailer 1</RadioButton>
+                <RadioButton x:Name="Trailer2RadioButton" Margin="3" Checked="RadioButtons_Checked">Trailer 2</RadioButton>
+            </StackPanel>
+            
+        </DockPanel>
+        
+        <Border BorderThickness="2" BorderBrush="Black" Margin="5">
+            <MediaElement x:Name="ReproductorMediaElement" Source="" LoadedBehavior="Manual"></MediaElement>
+        </Border>
+        
+    </DockPanel>
 </Window>
